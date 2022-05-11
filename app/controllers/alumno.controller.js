@@ -8,15 +8,14 @@ exports.create = (req, res) => {
     });
   }
   const alumno = new Alumno({
-    Id : alumno.Id,
-    Nombre : alumno.Nombre,
-    Identificador : alumno.Identificador,
-    Email : alumno.Email,
-    Carrera : alumno.Carrera
+    Id : req.body.Id,
+    Nombre : req.body.Nombre,
+    Identificador : req.body.Identificador,
+    Email : req.body.Email,
+    Carrera : req.body.Carrera
   });
 
-
-  Alumno.create(category, (err, data) => {
+  Alumno.create(alumno, (err, data) => {
     if (err)
       res.status(500).send({
         message:

@@ -15,17 +15,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // simple route
 app.get("/", (req, res) => {
-    if(req.method == 'GET'){
-        let filepath = path.resolve('./index.html');
-    
-        fs.exists(filepath, (exists) => {
-          if(!exists){
-            return;
-          }
-          res.writeHead(200, {'Content-Type': 'text/html'});
-          fs.createReadStream(filepath).pipe(res);
-        });
-    }
+  res.send('Hello World!');
 });
 require("./app/routes/alumno.routes")(app);
 

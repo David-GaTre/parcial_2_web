@@ -50,7 +50,7 @@ Alumno.create = (newAlumno, result) => {
 };
 
 Alumno.remove = (id, result) => {
-    sql.query("DELETE FROM Alumnos WHERE id = ?", id, (err, res) => {
+    sql.query("DELETE FROM Alumnos WHERE Id = ?", id, (err, res) => {
       if (err) {
         console.log("error: ", err);
         result(null, err);
@@ -67,8 +67,8 @@ Alumno.remove = (id, result) => {
 
 Alumno.updateById = (id, alumno, result) => {
     sql.query(
-      "UPDATE Alumnos SET Nombre = ?, Identificador = ?, Email = ?, Carrera = ? WHERE id = ?"
-      [alumno.id, alumno.Nombre, alumno.Identificador, alumno.Email, alumno.Carrera, id],
+      "UPDATE Alumnos SET Nombre = ?, Identificador = ?, Email = ?, Carrera = ? WHERE Id = ?",
+      [alumno.Nombre, alumno.Identificador, alumno.Email, alumno.Carrera, id],
       (err, res) => {
         if (err) {
           console.log("error: ", err);
